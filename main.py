@@ -3,7 +3,7 @@ import sys
 import math
 import random
 
-# Константы
+
 GRAVITY = 0.01
 DAMPING_COEFFICIENT = 1
 BALL_RADIUS = 10
@@ -11,14 +11,14 @@ BOUNDARY_RADIUS = 200
 SIZE_WIDTH = int(1600 * 0.7)
 SIZE_HEIGHT = int(900 * 0.7)
 MAX_BALLS = 4000
-INITIAL_BALLS_COUNT = 5  # Начальное количество шариков
-NEW_BALLS_ON_COLLISION = 1  # Количество новых шариков при столкновении
+INITIAL_BALLS_COUNT = 5
+NEW_BALLS_ON_COLLISION = 1
 
 INITIAL_SPEED_RANGE = 20
-INITIAL_SPEED_X_RANGE = INITIAL_SPEED_RANGE  # Максимальная скорость по оси X
-INITIAL_SPEED_Y_RANGE = INITIAL_SPEED_RANGE  # Максимальная скорость по оси Y
+INITIAL_SPEED_X_RANGE = INITIAL_SPEED_RANGE
+INITIAL_SPEED_Y_RANGE = INITIAL_SPEED_RANGE
 
-# Константы для малого круга
+
 SMALL_CIRCLE_RADIUS = 30
 SMALL_CIRCLE_COLOR = (0, 0, 255)  # Синий цвет
 NUM_SMALL_CIRCLES = 4  # Количество малых кругов
@@ -26,11 +26,10 @@ POLYGON_SIDE_LENGTH = 250  # Длина стороны правильного м
 ROTATION_SPEED = 0.001  # Скорость вращения в радианах за кадр
 INITIAL_ROTATION_STEP_DEGREES = 0  # Начальный шаг поворота в градусах
 
-# Инициализация Pygame
+
 pygame.init()
 
 
-# Функция для преобразования градусов в радианы
 def degrees_to_radians(degrees):
     return degrees * (math.pi / 180)
 
@@ -165,10 +164,10 @@ class Game:
         self.gravity = GRAVITY
         self.damping = DAMPING_COEFFICIENT
 
-        self.font = pygame.font.Font(None, 36)  # Шрифт для отображения текста
+        self.font = pygame.font.Font(None, 36)
 
     def random_color(self):
-        return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        return random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
 
     def random_speed_variation(self, speed):
         variation = [random.uniform(-0.05, 0.05) * s for s in speed]
@@ -209,6 +208,7 @@ class Game:
             ball.draw(self.screen)
         self.draw_ball_count()
         pygame.display.flip()
+
 
     def draw_ball_count(self):
         ball_count_text = self.font.render(f'Balls: {len(self.balls)}', True, (255, 255, 255))
